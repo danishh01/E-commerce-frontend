@@ -19,7 +19,7 @@ const AppState = (props) => {
   const [allUsers, setAllUsers] = useState([]);
   const [razorPayOrder, setRazorPayOrder] = useState(); // current order , razorpay response
 
- const url = import.meta.env.VITE_API_URL;
+ const url = 'https://e-commerce-backend-qexi.onrender.com';
 
 
   useEffect(() => {
