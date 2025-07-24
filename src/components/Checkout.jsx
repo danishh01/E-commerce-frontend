@@ -55,12 +55,12 @@ const Checkout = () => {
 
   const cartLength = cart?.items?.length;
 
-  // "rzp_test_gHH711O4gcSjCq",
+  
 
   const handlePayment = async () => {
     try {
       const orderResponse = await axios.post(
-        `${url}/payment/placeorder`,
+        `${url}/api/payment/placeorder`,
         {
           amount: price,
           cartItems: cart.items,
@@ -73,11 +73,11 @@ const Checkout = () => {
       console.log("razor data", orderResponse);
 
       const options = {
-        key: "rzp_test_gHH711O4gcSjCq", // Enter your Razorpay Key ID here
+        key: "rzp_test_xOGFvdmpgGGY6r", // Enter your Razorpay Key ID here
         amount: orderAmount * 100,
         currency: "INR",
-        name: "Web Dev Mastery",
-        description: "WDM E - Commerce",
+        name: "Danish Surah",
+        description: "Gadgets Store",
         order_id: orderId,
         handler: async function (response) {
           console.log("razor pay wala response = ",response)
@@ -92,7 +92,7 @@ const Checkout = () => {
             // orderDate:Date.now()
           };
           const data = await axios.post(
-            `${url}/payment/verify-payment`,
+            `${url}/api/payment/verify-payment`,
             paymentData
           );
           console.log("backed res", data);
@@ -106,8 +106,8 @@ const Checkout = () => {
         //  console.log(handler),
         prefill: {
           name: userAddress.fullName,
-          email: "WebDevMastery@gmail.com",
-          contact: "9999999999",
+          email: "mr.surah12345@gmail.com",
+          contact: "8476012435",
         },
         notes: {
           address: userAddress.addressLine,
